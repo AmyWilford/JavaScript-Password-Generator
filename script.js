@@ -1,11 +1,13 @@
 // Assignment Code
 // Selects generate password button from HTL
 var generateBtn = document.querySelector("#generate");
-// Function for password prompts
 
-// NOT WORKING RIGHT NOW let startAgain= confirm ('Invalid entry, do you want to try again from the start?');
-
-// let passLength;
+// Declare all password component variables
+let passLength;
+let lowercase ='abcdefghijklmnopqrstuvwxyz';
+let uppercase=lowercase.toUpperCase();
+let number;
+let specialChar;
 
 // Function to choose to stop playing.
 let keepGoing = function(r){
@@ -21,39 +23,38 @@ alert('OK we can try again another day. Bye!');
 // Function to determine password length
 let lengthPrompt = function() {
    passLength = prompt ('How long would you like your password to be (select a number between 8 and 128 characters');
-  if (passLength >=8 && passLength<=128) {
+  if (typeof passLength =='number' && passLength >=8 && passLength<=128) {
     console.log(passLength);
   } else {
     keepGoing();
   }
 }
+
 // function to determine inclusion of lowercase letters
 let lowercasePrompt = function(){
-  let uppercase='';
-  let lowercase='';
+  
   let lowercaseR = prompt('Do you want to include lowercase letters (Y or N?').toUpperCase();
-  if (lowercaseR==='N') {
-    uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    console.log(uppercase);
-    console.log('uppercase only')
-  } else if (lowercaseR ==='Y') {
-    lowercase ='abcdefghijklmnopqrstuvwxyz';
+  if (lowercaseR ==='Y') {
     console.log(lowercase);
     uppercasePrompt();
-    console.log('ask about uppercase')
+  } else if (lowercaseR==='N') {
+    lowercase='';
+    console.log(uppercase);
+    console.log('uppercase only')
   } else {
-    alert('Invalid Entry. Start again')
+    keepGoing();
   }
 }
 // 
 let uppercasePrompt = function(){
   let uppercaseR = prompt('Do you want to include uppercase letters (Y or N?)').toUpperCase();
   if(uppercaseR ==='Y') {
-    console.log('yes to uppercase');
+    console.log(uppercase);
   } else if (uppercaseR==='N') {
-      console.log('no uppercase');
+      uppercase='';
+      console.log(uppercase);
   } else {
-    alert('Invalid Entry. Start again')
+    keepGoing();
   }
 }
 // Function to include numbers
@@ -64,7 +65,7 @@ let numericPrompt = function() {
   } else if (numberR==='N') {
       console.log('no numbers');
   } else {
-    alert('Invalid Entry. Start again')
+    keepGoing();
   }
 }
 // Function to include special characters
@@ -75,7 +76,7 @@ let specialCharPrompt = function() {
   } else if (charR==='N') {
       console.log('no characters');
   } else {
-    alert('Invalid Entry. Start again')
+    keepGoing();
   }
 }
 
@@ -91,25 +92,25 @@ let generatePassword= function(){
     // uppercasePrompt();
     numericPrompt();
     specialCharPrompt();
-    console.log('all questions asked');
-
+    console.log('password')
   // let chars = "0123456789abcdefghijklmnopqrstuvwxyz!@#$%^&*()ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   // for(let i=0; i<=passLength; i++){
   //   let randomNumber = Math.floor(Math.random()*chars.Length);
   //   password+=chars.substring(randomNumber,randomNumber+1)
   //   console.log(password)
   // }
-}
+};
 
 // Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector("#password");
+//   console.log('Password');
 
-  passwordText.value = password;
+//   passwordText.value = password;
 
-}
+// }
 
 // Add event listener to generate button - will call writePassword function
 // AMY REPLACE FUNCTION WITH writePassword
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", generatePassword);
