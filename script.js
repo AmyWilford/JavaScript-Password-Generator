@@ -4,19 +4,27 @@ var generateBtn = document.querySelector("#generate");
 // Function for password prompts
 
 // NOT WORKING RIGHT NOW let startAgain= confirm ('Invalid entry, do you want to try again from the start?');
-// if(startAgain) {
-//   passwordPrompts()
-// } else {
-//   alert('OK we can try again another day. Bye!')
-// }
-let passLength;
+
+// let passLength;
+
+// Function to choose to stop playing.
+let keepGoing = function(r){
+  r = confirm('Invalid Entry, do you want to try again?');
+if(r) {
+  generatePassword();
+} else {
+alert('OK we can try again another day. Bye!');
+}
+};
+// QUESTION HOW TO CLEAR FROM ANY ALERTS AND START WITH BLANK PAGE
+
 // Function to determine password length
 let lengthPrompt = function() {
    passLength = prompt ('How long would you like your password to be (select a number between 8 and 128 characters');
   if (passLength >=8 && passLength<=128) {
     console.log(passLength);
   } else {
-    alert('Invalid Entry. Start again')
+    keepGoing();
   }
 }
 // function to determine inclusion of lowercase letters
@@ -73,6 +81,7 @@ let specialCharPrompt = function() {
 
 // Function to generate password
 let generatePassword= function(){
+
   // Initial alert asking declaring that prompts are coming
   alert("Let's make you a secure password. First, let's determine your preferred password criteria.")
     
