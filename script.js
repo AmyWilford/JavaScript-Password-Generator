@@ -9,6 +9,7 @@ let lowercase ='abcdefghijklmnopqrstuvwxyz';
 let uppercase=lowercase.toUpperCase();
 let number='1234567890';
 let specialChar='!@#$%^&*()';
+let allChars='';
 
 // Function to determine password length
 let lengthPrompt = function() {
@@ -71,9 +72,8 @@ let specialCharPrompt = function() {
     }
 // function to confirm entry into prompts
   function confirmPrompts(){
-    let allChars = number.concat(lowercase,uppercase,specialChar);
-    if (allChars=='') {
-      console.log(allChars)
+    allChars = allChars.concat(number,lowercase,uppercase,specialChar);
+    if (allChars == '') {
       alert("You need to include something in your password, please generate again")
     } else {
       (console.log(allChars))
@@ -88,11 +88,12 @@ let generatePassword= function(){
     numericPrompt();
     specialCharPrompt();
     confirmPrompts();
-    passLength=passLength;
+    // passLength=passLength;
     for(let i=0; i<passLength; i++){
-     let randomPasswordNumber = Math.floor(Math.random()*allChars.length-1);
-     randomPassword +=allChars.substring(randomPasswordNumber, randomPasswordNumber+1)
+     let randomNum = Math.floor(Math.random()*allChars.length);
+     randomPassword +=allChars.substring(randomNum, randomNum+1)
    };
+   console.log(randomPassword);
   return randomPassword;
 }
 
