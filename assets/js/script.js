@@ -10,7 +10,7 @@ let specialChar;
 
 // Function to determine password length
 let lengthPrompt = function() {
-   passLength = prompt ('How long would you like your password to be (select a number between 8 and 128)');
+   passLength = prompt ('How long would you like your password to be\n(select a number between 8 and 128)');
   if (isNaN(passLength)== false && passLength >=8 && passLength<=128) {
     console.log(passLength);
   } else {
@@ -35,7 +35,7 @@ let lowercasePrompt = function(){
       return;
     }
 
-// function to dermine inclusion Of uppercase letters
+// Function to dermine inclusion Of uppercase letters
 let uppercasePrompt = function(){
   let uppercaseR = confirm('Do you want to include uppercase letters?')
   if(uppercaseR) {
@@ -76,7 +76,7 @@ let specialCharPrompt = function() {
       return;
     }
 
-// function to confirm entry into prompts
+// Function to confirm at least one prompt was answered confirmed
   function confirmPrompts(){
     allChars='';
     allChars = allChars.concat(lowercase,uppercase,number,specialChar);
@@ -92,7 +92,6 @@ let specialCharPrompt = function() {
 // Function to generate password
 let generatePassword= function(){
   let randomPassword='';
-  // alert("Let's make you a secure password. First, let's determine your preferred password criteria.")
   lengthPrompt();
   lowercasePrompt();
   uppercasePrompt();
@@ -113,7 +112,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
   console.log('Password');
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button - will call writePassword function
