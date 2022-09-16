@@ -12,7 +12,7 @@ let specialChar;
 let lengthPrompt = function() {
    passLength = prompt ('How long would you like your password to be\n(select a number between 8 and 128)');
   if (isNaN(passLength)== false && passLength >=8 && passLength<=128) {
-    console.log(passLength);
+    console.log('password length: '+ passLength);
   } else {
     alert("Invalid Entry - let's try again") 
     lengthPrompt();
@@ -25,7 +25,6 @@ let lowercasePrompt = function(){
   let lowercaseR = confirm('Do you want to include lowercase letters?')
   if (lowercaseR) {
     lowercase='abcdefghijklmnopqrstuvwxyz';
-    console.log(lowercase);
     console.log('include lowercase')
   } else {
     lowercase='';
@@ -43,18 +42,17 @@ let uppercasePrompt = function(){
     console.log('include uppercase')
   } else{
     uppercase='';
-       console.log(uppercase);
-       console.log('No uppercase')
-      }
-      return;
+    console.log('No uppercase')
     }
+      return;
+  }
 
 // Function to include numbers
 let numericPrompt = function() {
   let numberR = confirm('Do you want to include numbers in your password?')
   if(numberR) {
     number='1234567890';
-    console.log(number)
+    console.log('include numbers')
   } else{
     number='';
     console.log('no numbers');
@@ -67,8 +65,7 @@ let specialCharPrompt = function() {
   let charR = confirm('Do you want to include special characters in your password?')
   if(charR) {
     specialChar='!@#$%^&*()';
-    console.log(specialChar);
-    console.log('Include special characters');
+    console.log('Include special characters: '+ specialChar);
   } else {
       specialChar='';
       console.log('No special characters');
@@ -76,15 +73,14 @@ let specialCharPrompt = function() {
       return;
     }
 
-// Function to confirm at least one prompt was answered confirmed
+// Function to confirm at least one prompt was answered affirmative
   function confirmPrompts(){
     allChars='';
     allChars = allChars.concat(lowercase,uppercase,number,specialChar);
-    console.log('the special characters spot: '+ allChars)
     if (allChars == '') {
-      alert("INVALID ENTRY. You need to include something in your password, please generate again.")
+      alert("Invalid Entry. \nYou need to include something in your password.\nPlease generate again.")
     } else {
-      (console.log(allChars))
+      console.log('Available special characters: '+ allChars)
     }
     return;
   }

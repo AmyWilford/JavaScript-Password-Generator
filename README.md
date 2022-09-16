@@ -1,4 +1,4 @@
-# Module03-Password-Generator
+# JavaScript Password Generator
 
 ## Table of Contents
 
