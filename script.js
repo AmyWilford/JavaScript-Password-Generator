@@ -26,11 +26,11 @@ let lowercasePrompt = function(){
   let lowercaseR = confirm('Do you want to include lowercase letters?')
   if (lowercaseR) {
     console.log(lowercase);
-    uppercasePrompt();
+    console.log('include lowercase')
   } else {
     lowercase='';
-    console.log(uppercase);
-    console.log('uppercase only')
+    console.log(lowercase);
+    console.log('no lowercase')
       }
     }
 // function to dermine inclusionof uppercase letters
@@ -38,10 +38,11 @@ let uppercasePrompt = function(){
   let uppercaseR = confirm('Do you want to include uppercase letters?')
   if(uppercaseR) {
     console.log(uppercase);
+    console.log('include uppercase')
   } else{
         uppercase='';
        console.log(uppercase);
-       console.log('No upper case')
+       console.log('No uppercase')
       }
     }
 
@@ -50,6 +51,7 @@ let numericPrompt = function() {
   let numberR = confirm('Do you want to include numbers in your password?')
   if(numberR) {
     console.log(number)
+    console.log('include numbers')
   } else{
     number='';
     console.log('no numbers');
@@ -60,23 +62,32 @@ let numericPrompt = function() {
 let specialCharPrompt = function() {
   let charR = confirm('Do you want to include special characters in your password?')
   if(charR) {
-    console.log('Yes speical thigns');
+    console.log(specialChar);
+    console.log('Include special characters');
   } else {
       specialChar='';
-      console.log('No special things');
+      console.log('No special characters');
       }
     }
-
+// function to confirm entry into prompts
+  function confirmPrompts(){
+    let allChars = number.concat(lowercase,uppercase,specialChar);
+    if (allChars=='') {
+      console.log(allChars)
+      alert("You need to include something in your password, please generate again")
+    } else {
+      (console.log(allChars))
+    }
+  }
 // Function to generate password
 let generatePassword= function(){
   alert("Let's make you a secure password. First, let's determine your preferred password criteria.")
     lengthPrompt();
     lowercasePrompt();
+    uppercasePrompt();
     numericPrompt();
     specialCharPrompt();
-    let allChars = number.concat(lowercase,uppercase,specialChar);
-    (console.log(allChars))
-
+    confirmPrompts();
     passLength=passLength;
     for(let i=0; i<passLength; i++){
      let randomPasswordNumber = Math.floor(Math.random()*allChars.length-1);
