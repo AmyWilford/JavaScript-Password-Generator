@@ -10,25 +10,14 @@ let uppercase=lowercase.toUpperCase();
 let number='1,2,3,4,5,6,7,8,9,0';
 let specialChar='!@#$%^&*()';
 
-// Function to choose to stop playing >>> NOT WORKING?
-// let keepGoing = function(r){
-//   r = confirm('Invalid Entry, do you want to try again?');
-// if(r) {
-//   generatePassword();
-// } else {
-// alert('OK we can try again another day. Bye!');
-// }
-// };
-// QUESTION HOW TO CLEAR FROM ANY ALERTS AND START WITH BLANK PAGE
-
 // Function to determine password length
 let lengthPrompt = function() {
    passLength = prompt ('How long would you like your password to be (select a number between 8 and 128 characters');
-  if (/*typeof passLength =='number'&&*/ passLength >=8 && passLength<=128) {
+  if (isNaN(passLength)== false && passLength >=8 && passLength<=128) {
     console.log(passLength);
   } else {
     alert("Invalid Entry - let's try again") 
-    generatePassword();
+    lengthPrompt();
     }
   }
 
@@ -42,8 +31,6 @@ let lowercasePrompt = function(){
     lowercase='';
     console.log(uppercase);
     console.log('uppercase only')
-        alert("Invalid Entry - let's try again") 
-        generatePassword();
       }
     }
 // 
@@ -54,8 +41,6 @@ let uppercasePrompt = function(){
   } else{
         uppercase='';
        console.log(uppercase);
-        alert("Invalid Entry - let's try again") 
-        generatePassword();
       }
     }
 // Function to include numbers
@@ -66,8 +51,6 @@ let numericPrompt = function() {
   } else{
     number='';
     console.log('no numbers');
-        alert("Invalid Entry - let's try again") 
-        generatePassword();
       }
   }
 
@@ -77,10 +60,8 @@ let specialCharPrompt = function() {
   if(charR) {
     console.log('Yes speical thigns');
   } else {
-    specialChar='';
+      specialChar='';
       console.log('No special things');
-      alert("Invalid Entry - let's try again") 
-      generatePassword();
       }
     }
 function createPassword(y){
@@ -101,7 +82,7 @@ let generatePassword= function(){
     specialCharPrompt();
     createPassword(passLength)
     console.log(randomPassword);
-  };
+}
 
 // Write password to the #password input
 function writePassword() {
