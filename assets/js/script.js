@@ -34,6 +34,7 @@ let lowercasePrompt = function(){
     console.log('no lowercase')
       }
     }
+
 // function to dermine inclusionof uppercase letters
 let uppercasePrompt = function(){
   let uppercaseR = confirm('Do you want to include uppercase letters?')
@@ -70,6 +71,7 @@ let specialCharPrompt = function() {
       console.log('No special characters');
       }
     }
+
 // function to confirm entry into prompts
   function confirmPrompts(){
     allChars = allChars.concat(number,lowercase,uppercase,specialChar);
@@ -81,10 +83,12 @@ let specialCharPrompt = function() {
       return;
     }
   }
+
 // Function to generate password
 let generatePassword= function(){
   alert("Let's make you a secure password. First, let's determine your preferred password criteria.")
-  // reset variables to original strings to allow generation of password if first attempt failed
+  // reset variables to original strings to allow generation of password of first attempt failed
+  randomPassword ='';
   lowercase ='abcdefghijklmnopqrstuvwxyz';
   uppercase=lowercase.toUpperCase();
   number='1234567890';
