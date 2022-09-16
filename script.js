@@ -75,13 +75,20 @@ let specialCharPrompt = function() {
     allChars = allChars.concat(number,lowercase,uppercase,specialChar);
     if (allChars == '') {
       alert("You need to include something in your password, please generate again")
+      return;
     } else {
       (console.log(allChars))
+      return;
     }
   }
 // Function to generate password
 let generatePassword= function(){
   alert("Let's make you a secure password. First, let's determine your preferred password criteria.")
+  // reset variables to original strings to allow generation of password if first attempt failed
+  lowercase ='abcdefghijklmnopqrstuvwxyz';
+  uppercase=lowercase.toUpperCase();
+  number='1234567890';
+  specialChar='!@#$%^&*()';
     lengthPrompt();
     lowercasePrompt();
     uppercasePrompt();
