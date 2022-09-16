@@ -9,17 +9,16 @@ let lowercase ='abcdefghijklmnopqrstuvwxyz';
 let uppercase=lowercase.toUpperCase();
 let number='1,2,3,4,5,6,7,8,9,0';
 let specialChar='!@#$%^&*()';
-let allChars = number.concat(lowercase,uppercase,specialChar);
 
-// Function to choose to stop playing.
-let keepGoing = function(r){
-  r = confirm('Invalid Entry, do you want to try again?');
-if(r) {
-  generatePassword();
-} else {
-alert('OK we can try again another day. Bye!');
-}
-};
+// Function to choose to stop playing >>> NOT WORKING?
+// let keepGoing = function(r){
+//   r = confirm('Invalid Entry, do you want to try again?');
+// if(r) {
+//   generatePassword();
+// } else {
+// alert('OK we can try again another day. Bye!');
+// }
+// };
 // QUESTION HOW TO CLEAR FROM ANY ALERTS AND START WITH BLANK PAGE
 
 // Function to determine password length
@@ -28,62 +27,69 @@ let lengthPrompt = function() {
   if (/*typeof passLength =='number'&&*/ passLength >=8 && passLength<=128) {
     console.log(passLength);
   } else {
-    keepGoing();
+    alert("Invalid Entry - let's try again") 
+    generatePassword();
+    }
   }
-}
 
 // function to determine inclusion of lowercase letters
 let lowercasePrompt = function(){
-  
-  let lowercaseR = prompt('Do you want to include lowercase letters (Y or N?').toUpperCase();
-  if (lowercaseR ==='Y') {
+  let lowercaseR = prompt('Do you want to include lowercase letters (Yes or No?').toUpperCase();
+  if (lowercaseR ==='YES') {
     console.log(lowercase);
     uppercasePrompt();
-  } else if (lowercaseR==='N') {
+  } else if (lowercaseR ==='NO') {
     lowercase='';
     console.log(uppercase);
     console.log('uppercase only')
   } else {
-    keepGoing();
-  }
-}
+        alert("Invalid Entry - let's try again") 
+        generatePassword();
+      }
+    }
 // 
 let uppercasePrompt = function(){
-  let uppercaseR = prompt('Do you want to include uppercase letters (Y or N?)').toUpperCase();
-  if(uppercaseR ==='Y') {
+  let uppercaseR = prompt('Do you want to include uppercase letters (Yes or No?)').toUpperCase();
+  if(uppercaseR ==='YES') {
     console.log(uppercase);
-  } else if (uppercaseR==='N') {
+  } else if (uppercaseR==='NO') {
       uppercase='';
       console.log(uppercase);
-  } else {
-    keepGoing();
-  }
-}
+  } else{
+        alert("Invalid Entry - let's try again") 
+        generatePassword();
+      }
+    }
 // Function to include numbers
 let numericPrompt = function() {
-  let numberR = prompt('Do you want to include numbers in your password').toUpperCase();
-  if(numberR ==='Y') {
-    console.log('yes to numbers');
-  } else if (numberR==='N') {
+  let numberR = prompt('Do you want to include numbers in your password, Yes or No').toUpperCase();
+  if(numberR ==='YES') {
+    console.log(number);
+  } else if (numberR==='NO') {
     number='';
     console.log('no numbers');
-  } else {
-    keepGoing();
+  } else{
+        alert("Invalid Entry - let's try again") 
+        generatePassword();
+      }
   }
-}
+
 // Function to include special characters
 let specialCharPrompt = function() {
-  let charR = prompt('Do you want to include special characters in your password').toUpperCase();
-  if(charR ==='Y') {
-    console.log('yes to characters');
-  } else if (charR==='N') {
+  let charR = prompt('Do you want to include special characters in your password, Yes or No').toUpperCase();
+  if(charR ==='YES') {
+    console.log('Yes speical thigns');
+  } else if (charR==='NO') {
     specialChar='';
-      console.log('no characters');
+      console.log('No  special things');
   } else {
-    keepGoing();
-  }
-}
+      alert("Invalid Entry - let's try again") 
+      generatePassword();
+      }
+    }
 function createPassword(y){
+  let allChars = number.concat(lowercase,uppercase,specialChar);
+  (console.log(allChars))
   y=y-1;
  for(let i=0; i<=y; i++){
    let randomPasswordNumnber = Math.floor(Math.random()*allChars.length-1);
