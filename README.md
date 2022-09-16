@@ -11,6 +11,8 @@
 
 ## Description
 
+This repository has been created with the intention of usingn JavaScript to generate a random password using a set of criteria defined by the user, including password length, letter cases, and special characters. Click the 'Generate Password' button to make your random password.
+
 ### Provided User Story
 
 ```
@@ -46,6 +48,8 @@ THEN the password is either displayed in an alert or written to the page
 - JavaScript
 
 ## Usage
+
+Use this 
 
 ## Demo
 

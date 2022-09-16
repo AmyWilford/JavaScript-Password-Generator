@@ -77,8 +77,8 @@ let generatePassword= function(){
     let allChars = number.concat(lowercase,uppercase,specialChar);
     (console.log(allChars))
 
-    passLength=passLength-1;
-    for(let i=0; i<=passLength; i++){
+    passLength=passLength;
+    for(let i=0; i<passLength; i++){
      let randomPasswordNumber = Math.floor(Math.random()*allChars.length-1);
      randomPassword +=allChars.substring(randomPasswordNumber, randomPasswordNumber+1)
    };
