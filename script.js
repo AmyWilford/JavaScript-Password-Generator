@@ -34,41 +34,38 @@ let lengthPrompt = function() {
 
 // function to determine inclusion of lowercase letters
 let lowercasePrompt = function(){
-  let lowercaseR = prompt('Do you want to include lowercase letters (Yes or No?').toUpperCase();
-  if (lowercaseR ==='YES') {
+  let lowercaseR = confirm('Do you want to include lowercase letters?')
+  if (lowercaseR) {
     console.log(lowercase);
     uppercasePrompt();
-  } else if (lowercaseR ==='NO') {
+  } else {
     lowercase='';
     console.log(uppercase);
     console.log('uppercase only')
-  } else {
         alert("Invalid Entry - let's try again") 
         generatePassword();
       }
     }
 // 
 let uppercasePrompt = function(){
-  let uppercaseR = prompt('Do you want to include uppercase letters (Yes or No?)').toUpperCase();
-  if(uppercaseR ==='YES') {
+  let uppercaseR = confirm('Do you want to include uppercase letters?')
+  if(uppercaseR) {
     console.log(uppercase);
-  } else if (uppercaseR==='NO') {
-      uppercase='';
-      console.log(uppercase);
   } else{
+        uppercase='';
+       console.log(uppercase);
         alert("Invalid Entry - let's try again") 
         generatePassword();
       }
     }
 // Function to include numbers
 let numericPrompt = function() {
-  let numberR = prompt('Do you want to include numbers in your password, Yes or No').toUpperCase();
-  if(numberR ==='YES') {
-    console.log(number);
-  } else if (numberR==='NO') {
+  let numberR = confirm('Do you want to include numbers in your password?')
+  if(numberR) {
+    console.log(number)
+  } else{
     number='';
     console.log('no numbers');
-  } else{
         alert("Invalid Entry - let's try again") 
         generatePassword();
       }
@@ -76,13 +73,12 @@ let numericPrompt = function() {
 
 // Function to include special characters
 let specialCharPrompt = function() {
-  let charR = prompt('Do you want to include special characters in your password, Yes or No').toUpperCase();
-  if(charR ==='YES') {
+  let charR = confirm('Do you want to include special characters in your password?')
+  if(charR) {
     console.log('Yes speical thigns');
-  } else if (charR==='NO') {
-    specialChar='';
-      console.log('No  special things');
   } else {
+    specialChar='';
+      console.log('No special things');
       alert("Invalid Entry - let's try again") 
       generatePassword();
       }
