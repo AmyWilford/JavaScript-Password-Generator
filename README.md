@@ -57,7 +57,7 @@ Screenshot of deployed site: <img src="assets/Images/Password Generator Preview.
 
 ## Deployment
 
-View this application in a web enivornment: https://amywilford.github.io/Module03-Password-Generator/
+View this application in a web enivornment: https://amywilford.github.io/JavaScript-Password-Generator/
 
 ## Credits
 
