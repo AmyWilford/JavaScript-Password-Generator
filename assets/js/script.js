@@ -1,15 +1,12 @@
-// Assignment Code
-// Selects generate password button from HTL
+// Selects 'Generate Password' button from HTMLL
 var generateBtn = document.querySelector("#generate");
 
-// Declare all password component variables
-let randomPassword='';
+// Declares all password component variables
 let passLength;
-let lowercase ='abcdefghijklmnopqrstuvwxyz';
-let uppercase=lowercase.toUpperCase();
-let number='1234567890';
-let specialChar='!@#$%^&*()';
-let allChars='';
+let lowercase;
+let uppercase;
+let number;
+let specialChar;
 
 // Function to determine password length
 let lengthPrompt = function() {
@@ -20,12 +17,14 @@ let lengthPrompt = function() {
     alert("Invalid Entry - let's try again") 
     lengthPrompt();
     }
+    return;
   }
 
 // function to determine inclusion of lowercase letters
 let lowercasePrompt = function(){
   let lowercaseR = confirm('Do you want to include lowercase letters?')
   if (lowercaseR) {
+    lowercase='abcdefghijklmnopqrstuvwxyz';
     console.log(lowercase);
     console.log('include lowercase')
   } else {
@@ -33,79 +32,79 @@ let lowercasePrompt = function(){
     console.log(lowercase);
     console.log('no lowercase')
       }
+      return;
     }
 
-// function to dermine inclusionof uppercase letters
+// function to dermine inclusion Of uppercase letters
 let uppercasePrompt = function(){
   let uppercaseR = confirm('Do you want to include uppercase letters?')
   if(uppercaseR) {
-    console.log(uppercase);
+    uppercase='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     console.log('include uppercase')
   } else{
-        uppercase='';
+    uppercase='';
        console.log(uppercase);
        console.log('No uppercase')
       }
+      return;
     }
 
 // Function to include numbers
 let numericPrompt = function() {
   let numberR = confirm('Do you want to include numbers in your password?')
   if(numberR) {
+    number='1234567890';
     console.log(number)
-    console.log('include numbers')
   } else{
     number='';
     console.log('no numbers');
       }
+      return;
   }
 
 // Function to include special characters
 let specialCharPrompt = function() {
   let charR = confirm('Do you want to include special characters in your password?')
   if(charR) {
+    specialChar='!@#$%^&*()';
     console.log(specialChar);
     console.log('Include special characters');
   } else {
       specialChar='';
       console.log('No special characters');
       }
+      return;
     }
 
 // function to confirm entry into prompts
   function confirmPrompts(){
-    allChars = allChars.concat(number,lowercase,uppercase,specialChar);
+    allChars='';
+    allChars = allChars.concat(lowercase,uppercase,number,specialChar);
+    console.log('the special characters spot: '+ allChars)
     if (allChars == '') {
-      alert("You need to include something in your password, please generate again")
-      return;
+      alert("INVALID ENTRY. You need to include something in your password, please generate again.")
     } else {
       (console.log(allChars))
-      return;
     }
+    return;
   }
 
 // Function to generate password
 let generatePassword= function(){
-  alert("Let's make you a secure password. First, let's determine your preferred password criteria.")
-  // reset variables to original strings to allow generation of password of first attempt failed
-  randomPassword ='';
-  lowercase ='abcdefghijklmnopqrstuvwxyz';
-  uppercase=lowercase.toUpperCase();
-  number='1234567890';
-  specialChar='!@#$%^&*()';
-    lengthPrompt();
-    lowercasePrompt();
-    uppercasePrompt();
-    numericPrompt();
-    specialCharPrompt();
-    confirmPrompts();
-    // passLength=passLength;
-    for(let i=0; i<passLength; i++){
-     let randomNum = Math.floor(Math.random()*allChars.length);
-     randomPassword +=allChars.substring(randomNum, randomNum+1)
-   };
-   console.log(randomPassword);
-  return randomPassword;
+  let randomPassword='';
+  // alert("Let's make you a secure password. First, let's determine your preferred password criteria.")
+  lengthPrompt();
+  lowercasePrompt();
+  uppercasePrompt();
+  numericPrompt();
+  specialCharPrompt();
+  confirmPrompts();
+  for(let i=0; i<passLength; i++){
+    let randomNum = Math.floor(Math.random()*allChars.length);
+    randomPassword += allChars.substring(randomNum, randomNum+1)
+  };
+  console.log(randomPassword);
+ return randomPassword;
 }
 
 // Write password to the #password input
